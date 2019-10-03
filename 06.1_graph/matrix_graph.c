@@ -50,10 +50,10 @@ MGraph BuildGraph(){
 
     MGraph Graph;
     Edge E;
-    int vn, i;
+    int nv, i;
 
-    scanf("%d", &vn);
-    Graph = CreateGraph(vn);
+    scanf("%d", &nv);
+    Graph = CreateGraph(nv);
     
     scanf("%d", &Graph->Ne);
     for(i = 0; i < Graph->Ne; ++i){
