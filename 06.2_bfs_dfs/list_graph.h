@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define MaxVertexNum 99
 
 typedef struct LNode* PtrToLNode;
 typedef PtrToLNode LGraph;
