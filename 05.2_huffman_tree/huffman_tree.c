@@ -25,3 +25,13 @@ HuffmanTree Huffman(MinHeap H){
     return T;
 
 }
+
+int WPL(HuffmanTree T, int Depth){
+
+    if( (!T->left) && (!T->right) ){
+        return ( Depth * T->weight );
+    }
+
+    else return ( WPL(T->left, Depth + 1) + WPL(T->right, Depth + 1) );
+
+}
