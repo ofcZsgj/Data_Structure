@@ -3,7 +3,7 @@
 #include "list_graph.h"
 
 struct QNode{
-    PtrToAdjVNode* data;
+    Vertex* data;
     int max_size;
     int front;
     int rear;
@@ -20,7 +20,7 @@ Queue CreateQueue(int max_size){
         return NULL;
     }
 
-    Q->data = (PtrToAdjVNode*)malloc(sizeof(struct AdjVNode) * MaxVertexNum);
+    Q->data = (Vertex*)malloc(sizeof(Vertex) * MaxVertexNum);
     if(!Q->data){
         printf("Out Of Space\n");
         return NULL;
@@ -46,7 +46,7 @@ int IsFull(Queue Q){
 
 }
 
-void Enqueue(Queue Q, PtrToAdjVNode data){
+void Enqueue(Queue Q, Vertex data){
 
     if(IsFull(Q)){
         printf("Queue is full\n");
@@ -58,7 +58,7 @@ void Enqueue(Queue Q, PtrToAdjVNode data){
 
 }
 
-PtrToAdjVNode Dequeue(Queue Q){
+Vertex Dequeue(Queue Q){
 
     if(IsEmpty(Q)){
         printf("Queue is empty\n");

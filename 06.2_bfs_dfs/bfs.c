@@ -10,27 +10,28 @@ void Visit(Vertex V){
     printf("Visit Vertex %d\n", V);
 }
 
-void BreadthFirstSearch(LGraph Graph, Vertex V, void(*Visit)(Vertex)){
+void BreadthFirstSearch(LGraph Graph, Vertex S, void(*Visit)(Vertex)){
 
     Queue Q;
+    Vertex V;
     PtrToAdjVNode W;
 
-    Q = CreateQueue(MaxVertexNum);
+    Q = CreateQueue(Graph->Nv);
 
-    Visit(V);
-    Visited[V] = true;
-    Enqueue(Q, Graph->L[V].FirstEdge);
+    Visit(S);
+    Visited[S] = true;
+    Enqueue(Q, S);
 
     while(IsEmpty(Q) || W){
 
-        W = Dequeue(Q);
-        for(; W; W = W->next){
+        V = Dequeue(Q);
+        for(W = Graph->L[V].FirstEdge; W; W = W->next){
 
             if(!Visited[W->AdjV]){
 
                 Visit(W->AdjV);
                 Visited[W->AdjV] = true;
-                Enqueue(Q, W);
+                Enqueue(Q, W->AdjV);
 
             }
 
