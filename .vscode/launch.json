@@ -9,7 +9,7 @@
             "name": "(lldb) 附加",
             "type": "cppdbg",
             "request": "attach",
-            "program": "输入程序名称，例如 ${workspaceFolder}/a.out",
+            "program": "Users/zsgj/Study/testFolder/Data_Structure/09_sort_algorithm/heap_sort",
             "processId": "${command:pickProcess}",
             "MIMode": "lldb"
         },
@@ -17,7 +17,7 @@
             "name": "(lldb) 启动",
             "type": "cppdbg",
             "request": "launch",
-            "program": "输入程序名称，例如 ${workspaceFolder}/a.out",
+            "program": "Users/zsgj/Study/testFolder/Data_Structure/09_sort_algorithm/heap_sort",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
