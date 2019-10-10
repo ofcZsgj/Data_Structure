@@ -1,6 +1,18 @@
 #include <stdio.h>
 typedef int ElementType;
 
+void Insertion_Sort(ElementType A[], int N){
+    ElementType tmp;
+    int i, j;
+    for(i = 1; i < N; ++i){
+        tmp = A[i];
+        for(j = i; j > 0 && A[j-1] > tmp; --j){
+            A[j] = A[j-1];
+        }
+        A[j] = tmp;
+    }
+}
+
 void Swap(ElementType* A, ElementType* B){
     ElementType tmp;
     tmp = *A;
@@ -14,7 +26,7 @@ ElementType Median3(ElementType A[], int left, int right){
     if(A[left] > A[center]){
         Swap(&A[left], &A[center]); 
     }
-    if(A[left > A[right]]){
+    if(A[left] > A[right]){
         Swap(&A[left], &A[right]);
     }
     if(A[center] > A[right]){
@@ -30,9 +42,9 @@ ElementType Median3(ElementType A[], int left, int right){
 void QuickSort(ElementType A[], int left, int right){
 
     ElementType pivot;
-    int low, high;
+    int low, high, Cutoff = 2;
 
-    if( (right - left) >= 1) {
+    if( (right - left) >= Cutoff) {
 
         pivot = Median3(A, left, right);
         low = left;
@@ -41,7 +53,7 @@ void QuickSort(ElementType A[], int left, int right){
         while(1){
 
             while(A[++low] < pivot);
-            while(A[--high > pivot]);
+            while(A[--high] > pivot);
 
             if(low < high){
                 Swap(&A[low], &A[high]);
@@ -55,7 +67,7 @@ void QuickSort(ElementType A[], int left, int right){
         QuickSort(A, left, low-1);
         QuickSort(A, low+1, right);
     }
-    else return;
+    else Insertion_Sort(A+left, right-left+1);
    
 }
 void Quick_Sort(ElementType A[], int N){
